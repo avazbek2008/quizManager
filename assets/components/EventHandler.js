@@ -5,13 +5,14 @@ export class EventHandler {
 
     init() {
         const startQuiz = document.querySelector('.start-button');
-        const quizPage = document.querySelector('.quiz-page');
-        const startPage = document.querySelector('.start-page');
+        const playButton = document.querySelector('.play-button');
 
         startQuiz.addEventListener('click', () => {
-            startPage.classList.remove('active');
-            quizPage.classList.add('active');
             this.quizManager.startQuiz();
+        })
+
+        playButton.addEventListener('click', (e) => {
+            this.quizManager.audioPlayer.toggleAudio(e.target);
         })
     }
 }
